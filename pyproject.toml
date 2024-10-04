@@ -1,0 +1,29 @@
+
+[project]
+name = "HtautauRegression"
+version = "0.1"
+authors = [
+  { name="Carl Gwillaim", email="gwilliam@hep.ph.liv.ac.uk"},
+]
+description = "MPHYS project on tau-pair mass regression for H->tautau and HH->bbtautau"
+readme = "README.md"
+requires-python = ">=3.10"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+dynamic = ["dependencies"]
+
+[project.urls]
+"Homepage" = "https://github.com/carlgwilliam/HtautauRegression"
+"Bug Tracker" = "https://github.com/carlgwilliam/HtautauRegression/issues"
+
+[tool.setuptools.dynamic]
+dependencies = { file = ["requirements.txt"] }
+
+[build-system]
+requires = ["setuptools>=62"]
+build-backend = "setuptools.build_meta"
+
+
