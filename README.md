@@ -45,7 +45,7 @@ conda activate Mtautau
 ```bash
 
 # On alpha, un jupyter lab with no browser
-jupyer lab --no-browser --port 8888
+jupyter lab --no-browser --port 8888
 
 # On your laptop create an ssh tunnel to alpha
 ssh -L 8888:localhost:8888 <userame>@alpha.ph.liv.ac.uk cat -
