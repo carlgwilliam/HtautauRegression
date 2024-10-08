@@ -10,7 +10,7 @@ MPHYS project on tau-pair mass regression for H->tautau and HH->bbtautau
 # Logon to alpha machine
 ssh <username>@alpha.ph.liv.ac.uk
 ```
-Where you have to replace `<username>` with the userName on the liverpool physics cluset which you got from the helpdesk.
+Where you have to replace `<username>` with your username on the liverpool physics cluset which you got from the helpdesk.
 
 ## First time setup
 
