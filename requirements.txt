@@ -4,3 +4,5 @@ matplotlib
 torch
 xgboost
 scikit-learn
+jupyter
+tables
