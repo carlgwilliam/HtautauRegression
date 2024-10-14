@@ -11,7 +11,7 @@ MPHYS project on tau-pair mass regression for H->tautau and HH->bbtautau
 ssh <username>@gateway.ph.liv.ac.uk
 ssh alpha
 ```
-Where you have to replace `<username>` with your username on the liverpool physics cluster which you got from the helpdesk.   You can also do this on your laptop but `alpha` has more CPU and also severl GPUs that might be useful for faster training. 
+Where you have to replace `<username>` with your username on the liverpool physics cluster which you got from the helpdesk.   You can also do this on your laptop, if you download the data, but `alpha` has more CPU and also severl GPUs that might be useful for faster training. 
 
 ## First time setup
 
@@ -59,6 +59,9 @@ ssh -p2222 -L8888:localhost:8888 <username>@localhost cat -
 
 # Point your local web browser to localhost:8888 to access jupyter
 # and paste in the token displayed in the terminal on alpha
+
+# Start by looking at examples/LoadDelphesData.ipynb
+
 ```
 
 
