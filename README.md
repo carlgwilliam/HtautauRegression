@@ -55,7 +55,7 @@ jupyter lab --no-browser --port 8888
 ssh -L 8888:localhost:8888 <userame>@alpha.ph.liv.ac.uk cat -
 # ... while from offsite it needs two commands
 ssh -L2222:alpha:22 <username>@gateway.ph.liv.ac.uk cat -
-ssh -p2222 -L8888:localhost:8888 gateway@localhost cat -
+ssh -p2222 -L8888:localhost:8888 <username>@localhost cat -
 
 # Point your local web browser to localhost:8888 to access jupyter
 # and paste in the token displayed in the terminal on alpha
