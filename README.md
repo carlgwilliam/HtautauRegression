@@ -4,13 +4,14 @@ MPHYS project on tau-pair mass regression for H->tautau and HH->bbtautau
 
 # Instructions
 
-## Log on
+## Log on to HEP machines
 
 ```bash
 # Logon to alpha machine
-ssh <username>@alpha.ph.liv.ac.uk
+ssh <username>@gateway.ph.liv.ac.uk
+ssh alpha
 ```
-Where you have to replace `<username>` with your username on the liverpool physics cluster which you got from the helpdesk.
+Where you have to replace `<username>` with your username on the liverpool physics cluster which you got from the helpdesk.   You can also do this on your laptop but `alpha` has more CPU and also severl GPUs that might be useful for faster training. 
 
 ## First time setup
 
@@ -45,11 +46,16 @@ conda activate Mtautau
 
 ```bash
 
-# On alpha, un jupyter lab with no browser
+# On alpha, run jupyter lab with no browser
+# (you may need to use another port 88XX if 8888 is taken)
 jupyter lab --no-browser --port 8888
 
-# On your laptop create an ssh tunnel to alpha
+# On your laptop create an ssh tunnel to alpha 
+# ... from on-site you can simply do
 ssh -L 8888:localhost:8888 <userame>@alpha.ph.liv.ac.uk cat -
+# ... while from offsite it needs two commands
+ssh -L2222:alpha:22 <username>@gateway.ph.liv.ac.uk cat -
+ssh -p2222 -L8888:localhost:8888 gateway@localhost cat -
 
 # Point your local web browser to localhost:8888 to access jupyter
 # and paste in the token displayed in the terminal on alpha
