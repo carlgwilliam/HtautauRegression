@@ -28,7 +28,7 @@ mamba create -n Mtautau python=3.10
 conda activate Mtautau
 
 # Install required packages
-python -m pip install -e .
+python -m pip install --extra-index-url https://download.pytorch.org/whl/cu121 -e .
 ```
 
 ## Subsequent setup
