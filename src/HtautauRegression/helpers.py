@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 import vector
 
 def find_sample_number(samples, mass):
-    idx = [mass in d for d in samples].index(True)
+    idx = [f"_{mass}." in d for d in samples].index(True)
     return idx
 
 def find_indices(samples, aux, aux_labels, mass):
