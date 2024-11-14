@@ -104,3 +104,58 @@ def make_four_vector(varname, data, massidx = None):
     
     return vec
 
+
+def make_met_vector(data, massidx = None):
+    ipt  = data.feature_names.index(f"MET_Met")
+    iphi = data.feature_names.index(f"MET_Phi")
+
+    if massidx is None:
+        vec = vector.array(
+            {"pt"  : X[:, ipt],
+             "phi" : X[:, iphi]
+             }
+        )
+    else:
+        vec = vector.array(
+            {"pt"  : X[massidx, ipt],
+             "phi" : X[massidx, iphi]
+             }
+        )
+
+def collinear_mass(tau1, tau2, met):
+    """
+    Input are `vectors` for the two taus and the met 
+    """
+    
+    pxMiss = met.px
+    pyMiss = met.py
+    
+    pxLept = tau1.px
+    pyLept = tau1.py
+    pzLept = tau1.pz
+    pLept  = tau1.energy
+    
+    pxTauJet = tau2.px
+    pyTauJet = tau2.py
+    pzTauJet = tau2.pz
+    pTauJet  = tau2.energy
+    
+    rexy  = pyTauJet/pxTauJet;
+    rex   = pxTauJet/pTauJet;
+    rcx   = pxLept/pLept;
+    rcy   = pyLept/pLept;
+    ta    = pyMiss-rexy*pxMiss;
+    tb    = rcy-rexy*rcx;
+    eNu1  = ta/tb;
+    eNu2  = (pxMiss-rcx*eNu1)/rex;
+
+    eTau1 = pLept+eNu1;
+    eTau2 = pTauJet+eNu2;
+    cosTheta = (pxLept*pxTauJet + pyLept*pyTauJet + pzLept*pzTauJet) / (pLept*pTauJet);
+    myTTmassd = 2. * eTau1 * eTau2 * (1. - cosTheta);
+    myTTmassd = np.sqrt(myTTmassd);
+    myTTmassd = np.nan_to_num(myTTmassd, -1)
+    
+    #ok = (eNu1 > 0) & (eNu2 > 0)
+    
+    return myTTmassd
