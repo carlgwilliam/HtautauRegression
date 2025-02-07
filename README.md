@@ -22,7 +22,7 @@ cd HtautauRegression
 
 # Set up a virtual environment
 source setup/setup_conda.sh
-mamba create -n Mtautau python=3.10
+conda create -n Mtautau python=3.10
 
 # Acivate the virtual enviroment
 conda activate Mtautau
